@@ -7,13 +7,12 @@ pipeline {
         DOCKER_REGISTRY = 'docker.io' // Modifier selon le registre si nécessaire
     }
 
-    stages {
-        stage('Clone Repository') {
-            steps {
-                // Cloner votre repository Git contenant le code de l'application
-                git 'https://github.com/AMEZIANDouha/Flask-app.git' // Remplacez avec votre URL GitHub
-            }
-        }
+    stage('Clone Repository') {
+    steps {
+        // Cloner votre repository Git contenant le code de l'application
+        git branch: 'main', url: 'https://github.com/AMEZIANDouha/Flask-app.git'
+    }
+    }
         
         stage('Build Docker Image') {
             steps {
